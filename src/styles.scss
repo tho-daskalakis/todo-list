@@ -9,6 +9,15 @@ $top-bar-bg: $teal-200;
 $side-bar-bg: $teal-800;
 $main-content-bg: $teal-50;
 
+/* Fonts */
+
+@font-face {
+  font-family: Nunito;
+  src: url(./fonts/Nunito-Regular.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+
 /* Styles */
 
 html,
@@ -25,12 +34,19 @@ body,
 
 body {
   overflow: auto;
+  font-family: 'Nunito';
 }
 
 .holy-grail {
+  height: 100%;
+
   display: grid;
   grid-template-rows: 1fr 5fr;
   grid-template-columns: 1fr 3fr;
+
+  & > * {
+    padding: 8px;
+  }
 
   & > .top-bar {
     background-color: $top-bar-bg;
