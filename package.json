@@ -1,0 +1,28 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Todo list. Be able to add projects and populate them with tasks. Add, edit and remove tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tho-daskalakis/todo-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tho-daskalakis/todo-list/issues"
+  },
+  "homepage": "https://github.com/tho-daskalakis/todo-list#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "sass": "^1.54.8",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1"
+  }
+}
