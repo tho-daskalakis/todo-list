@@ -82,7 +82,7 @@ body,
     display: flex;
     flex-direction: column;
     gap: 8px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 }
@@ -125,6 +125,10 @@ body,
   }
 }
 
+.selected-project-display {
+  font-weight: 600;
+}
+
 .add-task {
   width: max-content;
   aspect-ratio: 1;
@@ -137,5 +141,9 @@ body,
     border-radius: 50%;
     background-color: $teal-200;
     box-shadow: 5px 5px 5px gray;
+
+    &:active {
+      box-shadow: none;
+    }
   }
 }
