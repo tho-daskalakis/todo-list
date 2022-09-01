@@ -1,3 +1,55 @@
-p {
-  color: red;
+/* Color palette */
+
+$teal-50: #f0fdfa;
+$teal-100: #ccfbf1;
+$teal-200: #99f6e4;
+$teal-800: #115e59;
+
+$top-bar-bg: $teal-200;
+$side-bar-bg: $teal-800;
+$main-content-bg: $teal-50;
+
+/* Styles */
+
+html,
+body,
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+
+  font-size: 24px;
+  font-size: min(5vmin, 3vmax);
+}
+
+body {
+  overflow: auto;
+}
+
+.holy-grail {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 1fr 3fr;
+
+  & > .top-bar {
+    background-color: $top-bar-bg;
+
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 2;
+  }
+
+  & > .side-bar {
+    background-color: $teal-800;
+
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+  }
+
+  & > .main-content {
+    background-color: $main-content-bg;
+
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+  }
 }
