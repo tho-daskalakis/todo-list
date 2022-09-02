@@ -132,6 +132,9 @@ body,
 .add-task {
   width: max-content;
   aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
 
   display: flex;
   justify-content: center;
