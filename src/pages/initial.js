@@ -85,6 +85,11 @@ function initial() {
 
   addTaskBtn.appendChild(addTaskIcon);
 
+  let tasks = [];
+  addTaskBtn.addEventListener('click', (e) => {
+    addTask(tasks);
+  });
+
   // Selected project display
 
   const selectedProjectDisplay = document.createElement('div');
