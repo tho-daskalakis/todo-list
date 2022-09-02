@@ -1,4 +1,6 @@
 function addTask(tasks) {
+  const taskNumber = tasks.length + 1;
+
   const main = document.querySelector('.main-content');
 
   const task = document.createElement('div');
@@ -11,7 +13,7 @@ function addTask(tasks) {
 
   taskTitle.classList.add('task-title');
 
-  taskTitle.textContent = 'New task';
+  taskTitle.textContent = 'New task' + ` ${taskNumber}`;
 
   task.appendChild(taskTitle);
 
@@ -20,6 +22,19 @@ function addTask(tasks) {
   const taskEdit = document.createElement('div');
 
   taskEdit.classList.add('task-edit');
+
+  const editIcon = document.createElement('img');
+
+  editIcon.setAttribute(
+    'src',
+    '../src/svg/edit_square_FILL0_wght400_GRAD0_opsz48.svg'
+  );
+
+  const editBtn = document.createElement('button');
+
+  editBtn.appendChild(editIcon);
+
+  taskEdit.appendChild(editBtn);
 
   task.appendChild(taskEdit);
 
@@ -30,6 +45,12 @@ function addTask(tasks) {
   taskActions.classList.add('task-action');
 
   task.appendChild(taskActions);
+
+  // Add to task array
+
+  tasks.push(task);
+
+  // Add to display
 
   main.appendChild(task);
 }
