@@ -1,6 +1,18 @@
 class Task {
-  constructor(taskNumber) {
-    this.taskNumber = taskNumber;
+  constructor(tasks) {
+    this.taskNumber = tasks.length + 1;
+  }
+
+  _text = 'Task';
+
+  set text(text) {
+    if (!text) return;
+
+    this._text = text;
+  }
+
+  get text() {
+    return this._text;
   }
 
   get task() {
@@ -14,7 +26,7 @@ class Task {
 
     taskTitle.classList.add('task-title');
 
-    taskTitle.textContent = 'New task' + ` ${this.taskNumber}`;
+    taskTitle.textContent = `${this._text} ${this.taskNumber}`;
 
     task.appendChild(taskTitle);
 
@@ -36,7 +48,8 @@ class Task {
     const editBtn = document.createElement('button');
 
     editBtn.addEventListener('click', (e) => {
-      console.log(task);
+      console.log(this);
+      // Create edit mode
     });
 
     editBtn.appendChild(editIcon);
