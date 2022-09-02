@@ -6,9 +6,14 @@ $teal-200: #99f6e4;
 $teal-500: #14b8a6;
 $teal-800: #115e59;
 
+$amber-600: #d97706;
+
 $top-bar-bg: $teal-500;
 $side-bar-bg: $teal-800;
 $main-content-bg: $teal-50;
+
+$edit-task-btn: $amber-600;
+$action-task-btn: $teal-500;
 
 /* Fonts */
 
@@ -22,11 +27,15 @@ $main-content-bg: $teal-50;
 /* Mixins */
 
 @mixin circular-btn {
-  width: max-content;
+  width: clamp(20px, 4vmax, 44px);
   aspect-ratio: 1;
   padding: 0;
   border: none;
   border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Styles */
@@ -120,7 +129,7 @@ body,
 
 .add-project {
   justify-self: center;
-  width: max-content;
+  width: clamp(24px, 5vmin, 48px);
   aspect-ratio: 1;
   padding: 0;
   border: none;
@@ -135,6 +144,8 @@ body,
   }
 
   img {
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
     background-color: $teal-200;
     box-shadow: 5px 5px 5px rgba($color: black, $alpha: 0.5);
@@ -188,6 +199,8 @@ body,
   }
 
   img {
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
     background-color: $teal-200;
     box-shadow: 5px 5px 5px gray;
@@ -200,14 +213,14 @@ body,
 
 .task {
   width: 100%;
-  height: 120px;
-  min-height: 120px;
+  height: 140px;
+  min-height: 140px;
   background-color: rgba($color: gray, $alpha: 0.2);
   border-radius: 5px;
 
   display: grid;
-  grid-template-rows: 70% 30%;
-  grid-template-columns: 90% 10%;
+  grid-template-rows: 1fr min(4vmax, 50px);
+  grid-template-columns: 1fr min(max(34px, 4vmax), 104px);
 
   & > * {
     padding: 8px;
@@ -235,6 +248,8 @@ body,
 
     & > button {
       @include circular-btn();
+
+      background-color: $edit-task-btn;
       border-radius: 10px;
       box-shadow: 5px 5px 5px rgba($color: black, $alpha: 0.25);
 
@@ -258,5 +273,32 @@ body,
 
     grid-row: 2 / span 1;
     grid-column: 1 / span 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > button {
+      @include circular-btn();
+
+      background-color: $action-task-btn;
+      margin-bottom: 8px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px rgba($color: black, $alpha: 0.25);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:active {
+        box-shadow: none;
+      }
+
+      & > img {
+        width: 90%;
+        height: 90%;
+      }
+    }
   }
 }
