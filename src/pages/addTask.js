@@ -7,11 +7,11 @@ function addTask(tasks) {
 
   const taskObj = new Task(tasks);
 
-  const task = taskObj.task;
+  const task = taskObj.editTask;
 
   // Add to task array
 
-  tasks.push(task);
+  tasks.push(taskObj);
 
   // Add to display
 

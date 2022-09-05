@@ -2,11 +2,14 @@ class Task {
   constructor(tasks) {
     this.taskIndex = tasks.length;
     this.tasks = tasks;
+    this.main = document.querySelector('.main-content');
   }
 
-  _text = 'Task';
+  _text = 'New task';
 
   _div = document.createElement('div');
+
+  _editDiv = document.createElement('div');
 
   set text(text) {
     if (!text) return;
@@ -37,7 +40,7 @@ class Task {
 
     taskTitle.classList.add('task-title');
 
-    taskTitle.textContent = `${this._text} ${this.taskIndex + 1}`;
+    taskTitle.textContent = `${this._text}`;
 
     task.appendChild(taskTitle);
 
@@ -59,12 +62,9 @@ class Task {
     const editBtn = document.createElement('button');
 
     editBtn.addEventListener('click', (e) => {
-      // console.log(this);
-
       // Call edit mode
 
-      this.div;
-      this.editTask;
+      this.editMode;
     });
 
     editBtn.appendChild(editIcon);
@@ -102,18 +102,8 @@ class Task {
   }
 
   get editTask() {
-    // Delete elements
-    const taskComponents = [...this.div.childNodes];
-    console.log(taskComponents);
-
-    const title = taskComponents[0];
-    this.div.removeChild(title);
-
-    const editBtn = taskComponents[1];
-    this.div.removeChild(editBtn);
-
-    const doneBtn = taskComponents[2];
-    this.div.removeChild(doneBtn);
+    const task = document.createElement('div');
+    task.classList.add('task');
 
     // Create new elements
 
@@ -124,9 +114,10 @@ class Task {
 
     const input = document.createElement('input');
     input.setAttribute('type', 'text');
+    input.value = this.text;
 
     editTitle.appendChild(input);
-    this.div.appendChild(editTitle);
+    task.appendChild(editTitle);
 
     // Create apply edit button
 
@@ -135,7 +126,10 @@ class Task {
 
     const applyBtn = document.createElement('button');
     applyBtn.addEventListener('click', (e) => {
-      console.log('Apply changes');
+      // Apply changes
+
+      this.text = input.value;
+      this.applyEdit;
     });
 
     const applyImg = document.createElement('img');
@@ -146,7 +140,7 @@ class Task {
 
     applyBtn.appendChild(applyImg);
     applyChanges.appendChild(applyBtn);
-    this.div.appendChild(applyChanges);
+    task.appendChild(applyChanges);
 
     // Create delete task button
 
@@ -167,9 +161,21 @@ class Task {
 
     deleteBtn.appendChild(deleteImg);
     deleteAction.appendChild(deleteBtn);
-    this.div.appendChild(deleteAction);
+    task.appendChild(deleteAction);
 
-    console.log(input, editTitle);
+    this._editDiv = task;
+    return this._editDiv;
+  }
+
+  get applyEdit() {
+    // console.log('Apply edit');
+    // console.log(this.main);
+    // console.log(this.div);
+    this.main.replaceChild(this.task, this._editDiv);
+  }
+
+  get editMode() {
+    this.main.replaceChild(this.editTask, this._div);
   }
 }
 
