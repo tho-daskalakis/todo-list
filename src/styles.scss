@@ -247,6 +247,11 @@ body,
     }
   }
 
+  .task-complete {
+    color: gray;
+    text-decoration-line: line-through;
+  }
+
   .task-edit {
     padding: 4px;
     padding-right: 8px;

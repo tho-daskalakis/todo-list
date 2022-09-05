@@ -1,6 +1,5 @@
 class Task {
   constructor(tasks) {
-    this.taskIndex = tasks.length;
     this.tasks = tasks;
     this.main = document.querySelector('.main-content');
   }
@@ -10,6 +9,10 @@ class Task {
   _div = document.createElement('div');
 
   _editDiv = document.createElement('div');
+
+  get taskIndex() {
+    return this.tasks.indexOf(this);
+  }
 
   set text(text) {
     if (!text) return;
@@ -89,6 +92,9 @@ class Task {
     actionsImg.setAttribute('alt', 'Mark task as done');
 
     const actionsBtn = document.createElement('button');
+    actionsBtn.addEventListener('click', (e) => {
+      this.markAsDone;
+    });
 
     actionsBtn.appendChild(actionsImg);
 
@@ -150,7 +156,7 @@ class Task {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('task-delete');
     deleteBtn.addEventListener('click', (e) => {
-      console.log('Delete task');
+      this.delete;
     });
 
     const deleteImg = document.createElement('img');
@@ -168,14 +174,29 @@ class Task {
   }
 
   get applyEdit() {
-    // console.log('Apply edit');
-    // console.log(this.main);
-    // console.log(this.div);
     this.main.replaceChild(this.task, this._editDiv);
   }
 
   get editMode() {
     this.main.replaceChild(this.editTask, this._div);
+  }
+
+  get markAsDone() {
+    const title = this._div.querySelector('.task-title');
+    title.classList.toggle('task-complete');
+  }
+
+  get delete() {
+    // console.log(`Delete task ${this.taskIndex}`);
+    // console.log(this.tasks);
+
+    // Remove from task list
+
+    this.tasks.splice(this.taskIndex, 1);
+
+    // Remove from main
+
+    this.main.removeChild(this._editDiv);
   }
 }
 
