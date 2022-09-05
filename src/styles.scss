@@ -14,6 +14,7 @@ $main-content-bg: $teal-50;
 
 $edit-task-btn: $amber-600;
 $action-task-btn: $teal-500;
+$delete-task-btn: tomato;
 
 /* Fonts */
 
@@ -234,6 +235,16 @@ body,
 
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    & > input {
+      width: 80%;
+      height: 60%;
+      font-size: min(4vmin, 2.8vmax);
+    }
   }
 
   .task-edit {
@@ -283,6 +294,29 @@ body,
       @include circular-btn();
 
       background-color: $action-task-btn;
+      margin-bottom: 8px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px rgba($color: black, $alpha: 0.25);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:active {
+        box-shadow: none;
+      }
+
+      & > img {
+        width: 90%;
+        height: 90%;
+      }
+    }
+
+    & > button.task-delete {
+      @include circular-btn();
+
+      background-color: $delete-task-btn;
       margin-bottom: 8px;
       height: auto;
       border-radius: 10px;
