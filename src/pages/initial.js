@@ -1,4 +1,4 @@
-import addTaskImage from '../svg/add_FILL0_wght400_GRAD0_opsz48.svg';
+import addTaskSVG from '../svg/add_FILL0_wght400_GRAD0_opsz48.svg';
 import { addTask } from './addTask';
 
 function initial() {
@@ -34,7 +34,7 @@ function initial() {
 
   const addProjectIcon = document.createElement('img');
 
-  addProjectIcon.setAttribute('src', addTaskImage);
+  addProjectIcon.setAttribute('src', addTaskSVG);
 
   addProjectIcon.setAttribute('alt', 'Add project icon');
 
@@ -70,7 +70,7 @@ function initial() {
 
   const addTaskIcon = document.createElement('img');
 
-  addTaskIcon.setAttribute('src', addTaskImage);
+  addTaskIcon.setAttribute('src', addTaskSVG);
 
   addTaskIcon.setAttribute('alt', 'Add task icon');
 
