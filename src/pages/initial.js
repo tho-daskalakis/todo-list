@@ -34,10 +34,7 @@ function initial() {
 
   const addProjectIcon = document.createElement('img');
 
-  addProjectIcon.setAttribute(
-    'src',
-    '../src/svg/add_FILL0_wght400_GRAD0_opsz48.svg'
-  );
+  addProjectIcon.setAttribute('src', addTaskImage);
 
   addProjectIcon.setAttribute('alt', 'Add project icon');
 
