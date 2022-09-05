@@ -1,3 +1,7 @@
+import deleteSVG from '../svg/delete_FILL0_wght400_GRAD0_opsz48.svg';
+import taskDoneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
+import editSVG from '../svg/edit_square_FILL0_wght400_GRAD0_opsz48.svg';
+
 class Task {
   constructor(tasks) {
     this.tasks = tasks;
@@ -55,10 +59,7 @@ class Task {
 
     const editIcon = document.createElement('img');
 
-    editIcon.setAttribute(
-      'src',
-      '../src/svg/edit_square_FILL0_wght400_GRAD0_opsz48.svg'
-    );
+    editIcon.setAttribute('src', editSVG);
 
     editIcon.setAttribute('alt', 'Edit task');
 
@@ -84,10 +85,7 @@ class Task {
 
     const actionsImg = document.createElement('img');
 
-    actionsImg.setAttribute(
-      'src',
-      '../src/svg/done_FILL0_wght400_GRAD0_opsz48.svg'
-    );
+    actionsImg.setAttribute('src', taskDoneSVG);
 
     actionsImg.setAttribute('alt', 'Mark task as done');
 
@@ -139,10 +137,9 @@ class Task {
     });
 
     const applyImg = document.createElement('img');
-    applyImg.setAttribute(
-      'src',
-      '../src/svg/done_FILL0_wght400_GRAD0_opsz48.svg'
-    );
+    applyImg.setAttribute('src', taskDoneSVG);
+
+    applyImg.setAttribute('alt', 'Apply edit changes');
 
     applyBtn.appendChild(applyImg);
     applyChanges.appendChild(applyBtn);
@@ -160,10 +157,8 @@ class Task {
     });
 
     const deleteImg = document.createElement('img');
-    deleteImg.setAttribute(
-      'src',
-      '../src/svg/delete_FILL0_wght400_GRAD0_opsz48.svg'
-    );
+    deleteImg.setAttribute('src', deleteSVG);
+    deleteImg.setAttribute('alt', 'Delete task');
 
     deleteBtn.appendChild(deleteImg);
     deleteAction.appendChild(deleteBtn);

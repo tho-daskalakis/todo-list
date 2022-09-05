@@ -1,3 +1,4 @@
+import addTaskImage from '../svg/add_FILL0_wght400_GRAD0_opsz48.svg';
 import { addTask } from './addTask';
 
 function initial() {
@@ -38,7 +39,7 @@ function initial() {
     '../src/svg/add_FILL0_wght400_GRAD0_opsz48.svg'
   );
 
-  addProjectIcon.setAttribute('alt', 'Add task icon');
+  addProjectIcon.setAttribute('alt', 'Add project icon');
 
   const addProjectBtn = document.createElement('button');
 
@@ -72,10 +73,7 @@ function initial() {
 
   const addTaskIcon = document.createElement('img');
 
-  addTaskIcon.setAttribute(
-    'src',
-    '../src/svg/add_FILL0_wght400_GRAD0_opsz48.svg'
-  );
+  addTaskIcon.setAttribute('src', addTaskImage);
 
   addTaskIcon.setAttribute('alt', 'Add task icon');
 
