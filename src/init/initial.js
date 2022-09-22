@@ -7,8 +7,8 @@ function initializePage() {
   holyGrail.classList.add('holy-grail');
 
   holyGrail.appendChild(createTopBar());
-  holyGrail.appendChild(createSideBar());
   holyGrail.appendChild(createMainContent());
+  holyGrail.appendChild(createSideBar());
 
   const container = document.querySelector('.container');
   container.appendChild(holyGrail);

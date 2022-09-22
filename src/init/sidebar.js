@@ -1,4 +1,4 @@
-import { createAddProjectBtn } from './addProject/addProject';
+import { createAddProjectBtn } from './addProjectBtn';
 
 function createSideBar() {
   // Side-bar text
