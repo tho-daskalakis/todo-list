@@ -1,4 +1,4 @@
-import { createMainContent } from './main';
+import { createMainContent } from './mainContent';
 import { createSideBar } from './sidebar';
 import { createTopBar } from './topbar';
 
