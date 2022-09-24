@@ -37,7 +37,7 @@ const projectManager = (() => {
   }
 
   function projectCreationManager() {
-    // console.log('clicked');
+    // console.log('new project clicked');
     clearMainContent();
     toggleAddProjectBtn();
     showEditDialog();

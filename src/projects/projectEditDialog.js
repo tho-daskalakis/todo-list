@@ -32,6 +32,7 @@ function projectEditDialog(projectName) {
 
   function applyChanges() {
     console.log('Apply changes');
+    // TODO: implement
   }
 
   editBtn.addEventListener('click', (e) => {
@@ -56,6 +57,7 @@ function projectEditDialog(projectName) {
 
   function deleteProject() {
     console.log('Delete project');
+    // TODO: implement
   }
 
   deleteBtn.addEventListener('click', (e) => {
