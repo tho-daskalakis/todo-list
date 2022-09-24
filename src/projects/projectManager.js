@@ -24,7 +24,7 @@ const projectManager = (() => {
     console.table(projectArr);
   }
 
-  function editDialog() {
+  function showEditDialog() {
     const main = document.querySelector('.main-content');
     const project = projectFactory();
     main.appendChild(projectEditDialog(project.projectName));
@@ -40,7 +40,7 @@ const projectManager = (() => {
     // console.log('clicked');
     clearMainContent();
     toggleAddProjectBtn();
-    editDialog();
+    showEditDialog();
     selectProjectInput();
   }
 
