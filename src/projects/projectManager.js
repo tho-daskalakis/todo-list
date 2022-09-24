@@ -1,6 +1,7 @@
 import { clearMainContent } from './clearMainContent';
 import { projectFactory } from './project';
 import { projectEditDialog } from './projectEditDialog';
+import { selectProjectInput } from './selectProjectInput';
 
 const projectManager = (() => {
   const projectArr = [];
@@ -29,9 +30,18 @@ const projectManager = (() => {
     main.appendChild(projectEditDialog(project.projectName));
   }
 
+  function toggleAddProjectBtn() {
+    const addProject = document.querySelector('.add-project');
+    addProject.disabled = !addProject.disabled;
+    addProject.classList.toggle('deactivated');
+  }
+
   function projectCreationManager() {
+    // console.log('clicked');
     clearMainContent();
-    // TODO: deactivate new project button while dialog is already displayed
+    toggleAddProjectBtn();
+    editDialog();
+    selectProjectInput();
   }
 
   return {

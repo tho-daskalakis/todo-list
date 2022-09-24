@@ -162,6 +162,13 @@ body,
   }
 }
 
+.deactivated {
+  img {
+    background-color: gray;
+    box-shadow: none;
+  }
+}
+
 .projects-title {
   font-weight: 600;
 }

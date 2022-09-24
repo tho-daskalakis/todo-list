@@ -29,8 +29,13 @@ function projectEditDialog(projectName) {
 
   const editBtn = document.createElement('button');
   editBtn.appendChild(editImg);
-  editBtn.addEventListener('click', (e) => {
+
+  function applyChanges() {
     console.log('Apply changes');
+  }
+
+  editBtn.addEventListener('click', (e) => {
+    applyChanges();
   });
 
   const edit = document.createElement('div');
@@ -48,6 +53,14 @@ function projectEditDialog(projectName) {
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('task-delete');
   deleteBtn.appendChild(deleteImg);
+
+  function deleteProject() {
+    console.log('Delete project');
+  }
+
+  deleteBtn.addEventListener('click', (e) => {
+    deleteProject();
+  });
 
   const action = document.createElement('div');
   action.classList.add('task-action');
