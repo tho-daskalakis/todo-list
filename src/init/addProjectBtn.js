@@ -13,7 +13,7 @@ function createAddProjectBtn() {
 
   // Handle project creation
   button.addEventListener('click', (e) => {
-    projectManager.editDialog();
+    projectManager.projectCreationManager();
   });
 
   return button;

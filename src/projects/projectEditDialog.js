@@ -14,7 +14,6 @@ function projectEditDialog(projectName) {
   const input = document.createElement('input');
 
   input.value = projectName;
-  input.select();
 
   const title = document.createElement('div');
   title.classList.add('task-title');

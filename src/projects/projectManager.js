@@ -1,3 +1,4 @@
+import { clearMainContent } from './clearMainContent';
 import { projectFactory } from './project';
 import { projectEditDialog } from './projectEditDialog';
 
@@ -26,14 +27,18 @@ const projectManager = (() => {
     const main = document.querySelector('.main-content');
     const project = projectFactory();
     main.appendChild(projectEditDialog(project.projectName));
-    // TODO: clear main before appending dialog
+  }
+
+  function projectCreationManager() {
+    clearMainContent();
+    // TODO: deactivate new project button while dialog is already displayed
   }
 
   return {
     addProject,
     removeProject,
     logProjects, // For testing
-    editDialog,
+    projectCreationManager,
   };
 })();
 
