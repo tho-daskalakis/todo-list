@@ -1,5 +1,7 @@
 import { clearMainContent } from './clearMainContent';
 import { projectEditDialog } from './projectEditDialog';
+import { selectProjectInput } from './selectProjectInput';
+import { updateProjectList } from './updateProjectList';
 
 const displayManager = (() => {
   function showEditDialog() {
@@ -18,6 +20,8 @@ const displayManager = (() => {
     toggleAddProjectBtn,
     projectEditDialog,
     clearMainContent,
+    selectProjectInput,
+    updateProjectList,
   };
 })();
 

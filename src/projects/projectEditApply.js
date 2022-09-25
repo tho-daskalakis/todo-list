@@ -1,7 +1,6 @@
 import { displayManager } from '../view/displayManager';
 import { projectFactory } from './project';
 import { projectManager } from './projectManager';
-import { updateProjectList } from './updateProjectList';
 
 // Changes the project's name
 function projectEditApply() {
@@ -29,10 +28,10 @@ function projectEditApply() {
   const project = projectFactory(projectName);
 
   projectManager.addProject(project);
-  projectManager.logProjects(); // For testing
+  // projectManager.logProjects();
 
   displayManager.clearMainContent();
-  updateProjectList();
+  displayManager.updateProjectList();
 
   displayManager.toggleAddProjectBtn();
 }

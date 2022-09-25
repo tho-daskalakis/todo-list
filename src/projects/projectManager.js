@@ -1,6 +1,4 @@
 import { displayManager } from '../view/displayManager';
-import { projectFactory } from './project';
-import { selectProjectInput } from './selectProjectInput';
 
 const projectManager = (() => {
   const projectArr = [];
@@ -11,7 +9,7 @@ const projectManager = (() => {
   function addProject(project) {
     projectArr.push(project);
     selectedProject = projectArr.findIndex((element) => element === project);
-    console.log('selected project index', selectedProject);
+    // console.log('selected project index', selectedProject);
   }
 
   function removeProject(project) {
@@ -28,7 +26,7 @@ const projectManager = (() => {
     displayManager.clearMainContent();
     displayManager.toggleAddProjectBtn();
     displayManager.showEditDialog();
-    selectProjectInput();
+    displayManager.selectProjectInput();
   }
 
   // Return true if name already exists
@@ -45,6 +43,7 @@ const projectManager = (() => {
   }
 
   return {
+    selectedProject,
     addProject,
     removeProject,
     logProjects, // For testing
