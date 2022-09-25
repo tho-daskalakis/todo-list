@@ -8,13 +8,17 @@ const projectManager = (() => {
 
   function addProject(project) {
     projectArr.push(project);
-    selectedProject = projectArr.findIndex((element) => element === project);
+    selectedProject = projectArr.length - 1;
     // console.log('selected project index', selectedProject);
   }
 
   function removeProject(project) {
     const index = projectArr.findIndex((element) => element === project);
     projectArr.splice(index, 1);
+  }
+
+  function getProjects() {
+    return [...projectArr];
   }
 
   // For testing
@@ -42,10 +46,15 @@ const projectManager = (() => {
     return isDuplicate;
   }
 
+  function getSelectedProject() {
+    return selectedProject;
+  }
+
   return {
-    selectedProject,
+    getSelectedProject,
     addProject,
     removeProject,
+    getProjects,
     logProjects, // For testing
     projectCreationManager,
     checkDuplicateName,
