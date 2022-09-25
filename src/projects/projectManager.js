@@ -1,17 +1,17 @@
-import { clearMainContent } from './clearMainContent';
+import { displayManager } from '../view/displayManager';
 import { projectFactory } from './project';
-import { projectEditDialog } from './projectEditDialog';
 import { selectProjectInput } from './selectProjectInput';
 
 const projectManager = (() => {
   const projectArr = [];
 
-  // Keep a reference to the selected project, null = no project selected
+  // Keep a reference to the selected project index, null = no project selected
   let selectedProject = null;
 
   function addProject(project) {
-    console.log('Add project:');
-    console.log(project);
+    projectArr.push(project);
+    selectedProject = projectArr.findIndex((element) => element === project);
+    console.log('selected project index', selectedProject);
   }
 
   function removeProject(project) {
@@ -24,24 +24,24 @@ const projectManager = (() => {
     console.table(projectArr);
   }
 
-  function showEditDialog() {
-    const main = document.querySelector('.main-content');
-    const project = projectFactory();
-    main.appendChild(projectEditDialog(project.projectName));
-  }
-
-  function toggleAddProjectBtn() {
-    const addProject = document.querySelector('.add-project');
-    addProject.disabled = !addProject.disabled;
-    addProject.classList.toggle('deactivated');
-  }
-
   function projectCreationManager() {
-    // console.log('new project clicked');
-    clearMainContent();
-    toggleAddProjectBtn();
-    showEditDialog();
+    displayManager.clearMainContent();
+    displayManager.toggleAddProjectBtn();
+    displayManager.showEditDialog();
     selectProjectInput();
+  }
+
+  // Return true if name already exists
+  function checkDuplicateName(nameToCheck) {
+    let isDuplicate = false;
+
+    projectArr.forEach((project) => {
+      if (project.projectName === nameToCheck) {
+        isDuplicate = true;
+      }
+    });
+
+    return isDuplicate;
   }
 
   return {
@@ -49,6 +49,7 @@ const projectManager = (() => {
     removeProject,
     logProjects, // For testing
     projectCreationManager,
+    checkDuplicateName,
   };
 })();
 

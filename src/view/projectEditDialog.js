@@ -1,3 +1,4 @@
+import { projectEditApply } from '../projects/projectEditApply';
 import deleteSVG from '../svg/delete_FILL0_wght400_GRAD0_opsz48.svg';
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
 
@@ -31,8 +32,7 @@ function projectEditDialog(projectName) {
   editBtn.appendChild(editImg);
 
   function applyChanges() {
-    console.log('Apply changes');
-    // TODO: implement
+    projectEditApply();
   }
 
   editBtn.addEventListener('click', (e) => {

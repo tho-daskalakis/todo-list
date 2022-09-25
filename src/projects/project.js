@@ -1,6 +1,6 @@
-const projectFactory = () => {
+const projectFactory = (name) => {
   const taskArr = [];
-  let projectName = 'New project';
+  let projectName = name ? name : 'New project';
 
   function addTask(task) {
     taskArr.push(task);
