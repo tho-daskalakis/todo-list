@@ -199,6 +199,8 @@ body,
 
 .selected-project-display {
   font-weight: 600;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .add-task {

@@ -1,6 +1,7 @@
 import { clearMainContent } from './clearMainContent';
 import { projectEditDialog } from './projectEditDialog';
 import { selectProjectInput } from './selectProjectInput';
+import { updateProjectContent } from './updateProjectContent';
 import { updateProjectList } from './updateProjectList';
 
 const displayManager = (() => {
@@ -22,6 +23,7 @@ const displayManager = (() => {
     clearMainContent,
     selectProjectInput,
     updateProjectList,
+    updateProjectContent,
   };
 })();
 

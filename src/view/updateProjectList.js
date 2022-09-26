@@ -1,4 +1,5 @@
 import { projectManager } from '../projects/projectManager';
+import { updateProjectContent } from './updateProjectContent';
 
 function updateProjectList() {
   const projectsBody = document.querySelector('.projects-body');
@@ -12,12 +13,13 @@ function updateProjectList() {
 
   // null = no projects in list
   if (projectManager.getSelectedProject !== null) {
+    // TODO: outsource div creation
+
     // Append existing projects to the project list
     projectManager.getProjects().forEach((project) => {
       const div = document.createElement('div');
       div.classList.add('project');
       div.textContent = project.projectName;
-      // TODO: add event listeners to change displayed project on click
       div.addEventListener('click', (e) => {
         // Find index of the clicked project
         // Use name as a unique id
@@ -41,6 +43,9 @@ function updateProjectList() {
     projectList[projectManager.getSelectedProject()].classList.add(
       'selected-project'
     );
+
+    // Render project's content
+    updateProjectContent();
   }
 }
 

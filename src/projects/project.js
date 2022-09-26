@@ -2,6 +2,10 @@ const projectFactory = (name) => {
   const taskArr = [];
   let projectName = name ? name : 'New project';
 
+  function getTasks() {
+    return [...taskArr];
+  }
+
   function addTask(task) {
     taskArr.push(task);
   }
@@ -17,6 +21,7 @@ const projectFactory = (name) => {
   }
 
   return {
+    getTasks,
     projectName,
     addTask,
     removeTask,
