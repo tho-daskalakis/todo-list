@@ -50,8 +50,13 @@ const projectManager = (() => {
     return selectedProject;
   }
 
+  function setSelectedProject(int) {
+    selectedProject = int;
+  }
+
   return {
     getSelectedProject,
+    setSelectedProject,
     addProject,
     removeProject,
     getProjects,

@@ -17,6 +17,21 @@ function updateProjectList() {
       const div = document.createElement('div');
       div.classList.add('project');
       div.textContent = project.projectName;
+      // TODO: add event listeners to change displayed project on click
+      div.addEventListener('click', (e) => {
+        // Find index of the clicked project
+        // Use name as a unique id
+        const projects = projectManager.getProjects();
+        let clickedIndex;
+        projects.forEach((project) => {
+          if (project.projectName === e.target.textContent) {
+            clickedIndex = projects.findIndex((element) => element === project);
+          }
+        });
+
+        projectManager.setSelectedProject(clickedIndex);
+        updateProjectList();
+      });
 
       projectsBody.appendChild(div);
     });
