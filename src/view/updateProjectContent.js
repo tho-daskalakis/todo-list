@@ -11,7 +11,6 @@ function updateProjectContent() {
   const selectedProjectIndex = projectManager.getSelectedProject();
   const currentProject = projectManager.getProjects()[selectedProjectIndex];
   const tasks = currentProject.getTasks();
-  console.log(tasks);
 
   // Display project name
   const displayProject = document.createElement('div');
@@ -20,7 +19,9 @@ function updateProjectContent() {
   main.appendChild(displayProject);
 
   // Create add task button
-  main.appendChild(createAddTaskBtn());
+  main.appendChild(createAddTaskBtn(selectedProjectIndex));
+
+  // TODO: render tasks
 }
 
 export { updateProjectContent };

@@ -16,9 +16,16 @@ const displayManager = (() => {
     addProject.classList.toggle('deactivated');
   }
 
+  function toggleAddTaskBtn() {
+    const addTask = document.querySelector('.add-task');
+    addTask.disabled = !addTask.disabled;
+    addTask.classList.toggle('deactivated');
+  }
+
   return {
     showEditDialog,
     toggleAddProjectBtn,
+    toggleAddTaskBtn,
     projectEditDialog,
     clearMainContent,
     selectProjectInput,
