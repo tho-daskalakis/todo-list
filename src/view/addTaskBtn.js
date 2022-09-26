@@ -1,5 +1,6 @@
 import addSVG from '../svg/add_FILL0_wght400_GRAD0_opsz48.svg';
 import { displayManager } from './displayManager';
+import { taskEditDialog } from './taskEditDialog';
 
 function createAddTaskBtn(projectIndex) {
   const index = projectIndex;
@@ -18,6 +19,8 @@ function createAddTaskBtn(projectIndex) {
     displayManager.toggleAddTaskBtn();
 
     // TODO: render task dialog
+    const main = document.querySelector('.main-content');
+    main.appendChild(taskEditDialog('New task'));
   });
 
   return btn;

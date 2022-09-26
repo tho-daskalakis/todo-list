@@ -1,6 +1,7 @@
 import { clearMainContent } from './clearMainContent';
 import { projectEditDialog } from './projectEditDialog';
 import { selectProjectInput } from './selectProjectInput';
+import { selectTaskInput } from './selectTaskInput';
 import { updateProjectContent } from './updateProjectContent';
 import { updateProjectList } from './updateProjectList';
 
@@ -29,6 +30,7 @@ const displayManager = (() => {
     projectEditDialog,
     clearMainContent,
     selectProjectInput,
+    selectTaskInput,
     updateProjectList,
     updateProjectContent,
   };

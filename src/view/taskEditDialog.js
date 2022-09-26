@@ -1,11 +1,8 @@
-import { projectEditApply } from '../projects/projectEditApply';
 import deleteSVG from '../svg/delete_FILL0_wght400_GRAD0_opsz48.svg';
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
 
-function projectEditDialog(projectName) {
-  // TODO: modify project name if project exists instead of creating new one
-
-  // Use already made CSS for task dialog to create/edit projects
+function taskEditDialog(taskText) {
+  // TODO: create/update task
 
   // The dialog container
 
@@ -16,7 +13,7 @@ function projectEditDialog(projectName) {
 
   const input = document.createElement('input');
 
-  input.value = projectName;
+  input.value = taskText;
 
   const title = document.createElement('div');
   title.classList.add('task-title');
@@ -38,7 +35,7 @@ function projectEditDialog(projectName) {
   }
 
   editBtn.addEventListener('click', (e) => {
-    applyChanges();
+    // TODO: implement
   });
 
   const edit = document.createElement('div');
@@ -75,4 +72,4 @@ function projectEditDialog(projectName) {
   return div;
 }
 
-export { projectEditDialog };
+export { taskEditDialog };
