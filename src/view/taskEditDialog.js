@@ -34,7 +34,6 @@ function taskEditDialog(task) {
   editBtn.addEventListener('click', (e) => {
     // Update task text value
     task.text = input.value;
-    console.log(task);
 
     // Update task editDiv & replace it with displayDiv
     task.displayDiv = displayManager.taskDisplay(task);

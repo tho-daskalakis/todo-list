@@ -1,5 +1,6 @@
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
 import editSVG from '../svg/edit_square_FILL0_wght400_GRAD0_opsz48.svg';
+import { displayManager } from './displayManager';
 
 function taskDisplay(task) {
   const div = document.createElement('div');
@@ -13,6 +14,12 @@ function taskDisplay(task) {
   const edit = document.createElement('div');
   edit.classList.add('task-edit');
   const editBtn = document.createElement('button');
+  editBtn.addEventListener('click', (e) => {
+    // Switch to edit mode
+    const main = document.querySelector('.main-content');
+    task.editDiv = displayManager.taskEditDialog(task);
+    displayManager.toggleTaskDisplayMode(task);
+  });
   const editImg = document.createElement('img');
   editImg.setAttribute('src', editSVG);
   editImg.setAttribute('alt', 'Edit task');

@@ -8,6 +8,8 @@ function toggleTaskDisplayMode(task) {
   if (!task.inDisplayMode) {
     main.replaceChild(task.displayDiv, task.editDiv);
   }
+
+  task.inDisplayMode = !task.inDisplayMode;
 }
 
 export { toggleTaskDisplayMode };
