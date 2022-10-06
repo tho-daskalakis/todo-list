@@ -27,7 +27,11 @@ function updateProjectContent() {
     .getCurrentProject()
     .getTasks()
     .forEach((task) => {
-      main.appendChild(displayManager.taskDisplay(task));
+      if (task.inDisplayMode) {
+        main.appendChild(task.displayDiv);
+      } else {
+        main.appendChild(task.editDiv);
+      }
     });
 }
 

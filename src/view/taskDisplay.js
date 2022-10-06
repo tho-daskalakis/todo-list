@@ -15,9 +15,10 @@ function taskDisplay(task) {
   edit.classList.add('task-edit');
   const editBtn = document.createElement('button');
   editBtn.addEventListener('click', (e) => {
-    // Switch to edit mode
-    const main = document.querySelector('.main-content');
+    // Update editDiv
     task.editDiv = displayManager.taskEditDialog(task);
+
+    // Switch to edit mode
     displayManager.toggleTaskDisplayMode(task);
   });
   const editImg = document.createElement('img');

@@ -35,7 +35,7 @@ function taskEditDialog(task) {
     // Update task text value
     task.text = input.value;
 
-    // Update task editDiv & replace it with displayDiv
+    // Update task displayDiv
     task.displayDiv = displayManager.taskDisplay(task);
 
     // Call displayManager to replace editDiv with displayDiv
@@ -58,8 +58,9 @@ function taskEditDialog(task) {
   deleteBtn.classList.add('task-delete');
   deleteBtn.appendChild(deleteImg);
 
+  // Delete task
   deleteBtn.addEventListener('click', (e) => {
-    // TODO: implement
+    taskManager.deleteTask(task);
   });
 
   const action = document.createElement('div');

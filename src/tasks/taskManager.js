@@ -19,15 +19,17 @@ const taskManager = (() => {
     main.appendChild(task.editDiv);
   }
 
-  // TODO: Handle task modification
-  function editTask() {}
-
   // TODO: Handle task deletion
-  function deleteTask() {}
+  function deleteTask(task) {
+    console.log(task);
+    const project = projectManager.getCurrentProject();
+    project.removeTask(task);
+    displayManager.updateProjectContent();
+    console.table(project.getTasks());
+  }
 
   return {
     createTask,
-    editTask,
     deleteTask,
   };
 })();
