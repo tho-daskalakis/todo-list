@@ -2,6 +2,9 @@ import { clearMainContent } from './clearMainContent';
 import { projectEditDialog } from './projectEditDialog';
 import { selectProjectInput } from './selectProjectInput';
 import { selectTaskInput } from './selectTaskInput';
+import { taskDisplay } from './taskDisplay';
+import { taskEditDialog } from './taskEditDialog';
+import { toggleTaskDisplayMode } from './toggleTaskDisplayMode';
 import { updateProjectContent } from './updateProjectContent';
 import { updateProjectList } from './updateProjectList';
 
@@ -33,6 +36,9 @@ const displayManager = (() => {
     selectTaskInput,
     updateProjectList,
     updateProjectContent,
+    taskDisplay,
+    taskEditDialog,
+    toggleTaskDisplayMode,
   };
 })();
 

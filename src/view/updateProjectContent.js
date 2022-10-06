@@ -1,5 +1,6 @@
 import { projectManager } from '../projects/projectManager';
 import { createAddTaskBtn } from './addTaskBtn';
+import { displayManager } from './displayManager';
 
 function updateProjectContent() {
   const main = document.querySelector('.main-content');
@@ -19,9 +20,15 @@ function updateProjectContent() {
   main.appendChild(displayProject);
 
   // Create add task button
-  main.appendChild(createAddTaskBtn(selectedProjectIndex));
+  main.appendChild(createAddTaskBtn());
 
   // TODO: render tasks
+  projectManager
+    .getCurrentProject()
+    .getTasks()
+    .forEach((task) => {
+      main.appendChild(displayManager.taskDisplay(task.text));
+    });
 }
 
 export { updateProjectContent };

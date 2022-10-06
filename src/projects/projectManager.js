@@ -18,7 +18,11 @@ const projectManager = (() => {
   }
 
   function getProjects() {
-    return [...projectArr];
+    return projectArr;
+  }
+
+  function getCurrentProject() {
+    return projectArr[selectedProject];
   }
 
   // For testing
@@ -60,6 +64,7 @@ const projectManager = (() => {
     addProject,
     removeProject,
     getProjects,
+    getCurrentProject,
     logProjects, // For testing
     projectCreationManager,
     checkDuplicateName,

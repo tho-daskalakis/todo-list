@@ -1,9 +1,9 @@
 import deleteSVG from '../svg/delete_FILL0_wght400_GRAD0_opsz48.svg';
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
+import { taskManager } from '../tasks/taskManager';
+import { displayManager } from './displayManager';
 
-function taskEditDialog(taskText) {
-  // TODO: create/update task
-
+function taskEditDialog(task, taskText) {
   // The dialog container
 
   const div = document.createElement('div');
@@ -30,12 +30,14 @@ function taskEditDialog(taskText) {
   const editBtn = document.createElement('button');
   editBtn.appendChild(editImg);
 
-  function applyChanges() {
-    projectEditApply();
-  }
-
+  // Apply changes
   editBtn.addEventListener('click', (e) => {
-    // TODO: implement
+    // Update task editDiv & replace it with displayDiv
+    console.log(input.value);
+    task.text = input.value;
+    task.displayDiv = displayManager.taskDisplay(task.text);
+    // Call displayManager to replace editDiv with displayDiv
+    displayManager.toggleTaskDisplayMode(task);
   });
 
   const edit = document.createElement('div');
@@ -54,13 +56,8 @@ function taskEditDialog(taskText) {
   deleteBtn.classList.add('task-delete');
   deleteBtn.appendChild(deleteImg);
 
-  function deleteProject() {
-    console.log('Delete project');
-    // TODO: implement
-  }
-
   deleteBtn.addEventListener('click', (e) => {
-    deleteProject();
+    // TODO: implement
   });
 
   const action = document.createElement('div');

@@ -3,7 +3,7 @@ const projectFactory = (name) => {
   let projectName = name ? name : 'New project';
 
   function getTasks() {
-    return [...taskArr];
+    return taskArr;
   }
 
   function addTask(task) {
