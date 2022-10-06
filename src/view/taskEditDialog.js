@@ -3,7 +3,7 @@ import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
 import { taskManager } from '../tasks/taskManager';
 import { displayManager } from './displayManager';
 
-function taskEditDialog(task, taskText) {
+function taskEditDialog(task) {
   // The dialog container
 
   const div = document.createElement('div');
@@ -13,7 +13,7 @@ function taskEditDialog(task, taskText) {
 
   const input = document.createElement('input');
 
-  input.value = taskText;
+  input.value = task.text;
 
   const title = document.createElement('div');
   title.classList.add('task-title');
@@ -32,10 +32,13 @@ function taskEditDialog(task, taskText) {
 
   // Apply changes
   editBtn.addEventListener('click', (e) => {
-    // Update task editDiv & replace it with displayDiv
-    console.log(input.value);
+    // Update task text value
     task.text = input.value;
-    task.displayDiv = displayManager.taskDisplay(task.text);
+    console.log(task);
+
+    // Update task editDiv & replace it with displayDiv
+    task.displayDiv = displayManager.taskDisplay(task);
+
     // Call displayManager to replace editDiv with displayDiv
     displayManager.toggleTaskDisplayMode(task);
   });

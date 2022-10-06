@@ -1,13 +1,13 @@
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
 import editSVG from '../svg/edit_square_FILL0_wght400_GRAD0_opsz48.svg';
 
-function taskDisplay(taskText) {
+function taskDisplay(task) {
   const div = document.createElement('div');
   div.classList.add('task');
 
   const title = document.createElement('div');
   title.classList.add('task-title');
-  title.textContent = taskText;
+  title.textContent = task.text;
   div.appendChild(title);
 
   const edit = document.createElement('div');
@@ -16,6 +16,7 @@ function taskDisplay(taskText) {
   const editImg = document.createElement('img');
   editImg.setAttribute('src', editSVG);
   editImg.setAttribute('alt', 'Edit task');
+
   editBtn.appendChild(editImg);
   edit.appendChild(editBtn);
   div.appendChild(edit);
