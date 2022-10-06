@@ -24,6 +24,10 @@ function taskDisplay(task) {
   const action = document.createElement('div');
   action.classList.add('task-action');
   const actionBtn = document.createElement('button');
+  actionBtn.addEventListener('click', (e) => {
+    // Mark task as done
+    title.classList.toggle('task-complete');
+  });
   const actionImg = document.createElement('img');
   actionImg.setAttribute('src', doneSVG);
   actionImg.setAttribute('alt', 'Mark task as done');
