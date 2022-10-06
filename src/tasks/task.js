@@ -3,6 +3,8 @@ function taskFactory(taskText) {
 
   let inDisplayMode = false;
 
+  let isDone = false;
+
   let displayDiv;
 
   let editDiv;
@@ -10,6 +12,7 @@ function taskFactory(taskText) {
   return {
     text,
     inDisplayMode,
+    isDone,
     displayDiv,
     editDiv,
   };

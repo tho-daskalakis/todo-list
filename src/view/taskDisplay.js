@@ -27,6 +27,8 @@ function taskDisplay(task) {
   actionBtn.addEventListener('click', (e) => {
     // Mark task as done
     title.classList.toggle('task-complete');
+
+    task.isDone = !task.isDone;
   });
   const actionImg = document.createElement('img');
   actionImg.setAttribute('src', doneSVG);
