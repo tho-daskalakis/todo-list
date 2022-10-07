@@ -1,6 +1,9 @@
-const projectFactory = (name) => {
+const projectFactory = (name = 'New project') => {
   const taskArr = [];
-  let projectName = name ? name : 'New project';
+
+  let div;
+
+  let projectName = name;
 
   function getTasks() {
     return taskArr;
@@ -21,6 +24,7 @@ const projectFactory = (name) => {
   }
 
   return {
+    div,
     getTasks,
     projectName,
     addTask,

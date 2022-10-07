@@ -1,27 +1,23 @@
-import { projectEditApply } from '../projects/projectEditApply';
+import { projectManager } from '../projects/projectManager';
 import deleteSVG from '../svg/delete_FILL0_wght400_GRAD0_opsz48.svg';
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
 
-function projectEditDialog(projectName) {
+function projectEditDialog(project) {
   // TODO: modify project name if project exists instead of creating new one
 
   // Use already made CSS for task dialog to create/edit projects
 
   // The dialog container
-
   const div = document.createElement('div');
   div.classList.add('task');
 
   // Input field
-
   const input = document.createElement('input');
-
-  input.value = projectName;
+  input.value = project.projectName;
 
   const title = document.createElement('div');
   title.classList.add('task-title');
   title.appendChild(input);
-
   div.appendChild(title);
 
   // Apply changes button
@@ -33,12 +29,20 @@ function projectEditDialog(projectName) {
   const editBtn = document.createElement('button');
   editBtn.appendChild(editImg);
 
-  function applyChanges() {
-    projectEditApply();
-  }
-
   editBtn.addEventListener('click', (e) => {
-    applyChanges();
+    if (projectManager.checkEmptyName(input.value)) {
+      alert('Project name cannot be empty.');
+      return;
+    }
+
+    if (projectManager.checkDuplicateName(project, input.value)) {
+      alert('Project name already exists. Cannot have duplicate project names');
+      return;
+    }
+
+    project.projectName = input.value;
+    // Call projectManager to handle project edit
+    projectManager.applyChanges(project);
   });
 
   const edit = document.createElement('div');
@@ -57,13 +61,9 @@ function projectEditDialog(projectName) {
   deleteBtn.classList.add('task-delete');
   deleteBtn.appendChild(deleteImg);
 
-  function deleteProject() {
-    console.log('Delete project');
-    // TODO: implement
-  }
-
   deleteBtn.addEventListener('click', (e) => {
-    deleteProject();
+    // TODO: implement
+    console.log('Delete project', project.projectName);
   });
 
   const action = document.createElement('div');

@@ -1,4 +1,6 @@
 import { displayManager } from '../view/displayManager';
+import { projectDisplay } from '../view/projectDisplay';
+import { projectFactory } from './project';
 
 const projectManager = (() => {
   const projectArr = [];
@@ -33,21 +35,32 @@ const projectManager = (() => {
   function projectCreationManager() {
     displayManager.clearMainContent();
     displayManager.toggleAddProjectBtn();
-    displayManager.showEditDialog();
+
+    // Create project
+    const project = projectFactory();
+    addProject(project);
+
+    displayManager.showEditDialog(project);
     displayManager.selectProjectInput();
   }
 
   // Return true if name already exists
-  function checkDuplicateName(nameToCheck) {
+  function checkDuplicateName(project, inputValue) {
     let isDuplicate = false;
 
-    projectArr.forEach((project) => {
-      if (project.projectName === nameToCheck) {
+    projectArr.forEach((element) => {
+      if (element !== project && element.projectName === inputValue) {
         isDuplicate = true;
       }
     });
 
     return isDuplicate;
+  }
+
+  function checkEmptyName(nameToCheck) {
+    if (nameToCheck === '') return true;
+
+    return false;
   }
 
   function getSelectedProject() {
@@ -56,6 +69,15 @@ const projectManager = (() => {
 
   function setSelectedProject(int) {
     selectedProject = int;
+  }
+
+  function applyChanges(project) {
+    // console.log(project);
+    // console.table(projectArr);
+    project.div = projectDisplay(project);
+    displayManager.updateProjectList();
+    displayManager.updateProjectContent();
+    displayManager.toggleAddProjectBtn();
   }
 
   return {
@@ -68,6 +90,8 @@ const projectManager = (() => {
     logProjects, // For testing
     projectCreationManager,
     checkDuplicateName,
+    checkEmptyName,
+    applyChanges,
   };
 })();
 

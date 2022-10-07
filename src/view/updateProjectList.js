@@ -13,13 +13,9 @@ function updateProjectList() {
 
   // null = no projects in list
   if (projectManager.getSelectedProject !== null) {
-    // TODO: outsource div creation
-
     // Append existing projects to the project list
     projectManager.getProjects().forEach((project) => {
-      const div = document.createElement('div');
-      div.classList.add('project');
-      div.textContent = project.projectName;
+      let div = project.div;
       div.addEventListener('click', (e) => {
         // Find index of the clicked project
         // Use name as a unique id
@@ -39,10 +35,10 @@ function updateProjectList() {
     });
 
     // Update selected project class
-    const projectList = [...projectsBody.querySelectorAll('.project')];
-    projectList[projectManager.getSelectedProject()].classList.add(
-      'selected-project'
-    );
+    projectManager.getProjects().forEach((project) => {
+      project.div.classList.remove('selected-project');
+    });
+    projectManager.getCurrentProject().div.classList.add('selected-project');
 
     // Render project's content
     updateProjectContent();

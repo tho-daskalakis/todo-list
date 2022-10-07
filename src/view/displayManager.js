@@ -9,9 +9,9 @@ import { updateProjectContent } from './updateProjectContent';
 import { updateProjectList } from './updateProjectList';
 
 const displayManager = (() => {
-  function showEditDialog() {
+  function showEditDialog(project) {
     const main = document.querySelector('.main-content');
-    main.appendChild(displayManager.projectEditDialog('New project'));
+    main.appendChild(projectEditDialog(project));
   }
 
   function toggleAddProjectBtn() {

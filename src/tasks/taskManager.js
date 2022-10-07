@@ -21,11 +21,9 @@ const taskManager = (() => {
 
   // TODO: Handle task deletion
   function deleteTask(task) {
-    console.log(task);
     const project = projectManager.getCurrentProject();
     project.removeTask(task);
     displayManager.updateProjectContent();
-    console.table(project.getTasks());
   }
 
   return {
