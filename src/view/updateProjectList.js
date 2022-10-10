@@ -1,5 +1,5 @@
+import { createMainContent } from '../init/mainContent';
 import { projectManager } from '../projects/projectManager';
-import { updateProjectContent } from './updateProjectContent';
 
 function updateProjectList() {
   const projectsBody = document.querySelector('.projects-body');
@@ -12,7 +12,7 @@ function updateProjectList() {
   });
 
   // null = no projects in list
-  if (projectManager.getSelectedProject !== null) {
+  if (projectManager.getSelectedProject() !== null) {
     // Append existing projects to the project list
     projectManager.getProjects().forEach((project) => {
       let div = project.div;
@@ -20,6 +20,9 @@ function updateProjectList() {
     });
   } else {
     // No projects, render default main page
+    const main = document.querySelector('.main-content');
+    const holyGrail = document.querySelector('.holy-grail');
+    holyGrail.replaceChild(createMainContent(), main);
   }
 }
 

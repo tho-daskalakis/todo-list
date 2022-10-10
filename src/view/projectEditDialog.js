@@ -1,3 +1,4 @@
+import { projectDelete } from '../projects/projectDelete';
 import { projectManager } from '../projects/projectManager';
 import deleteSVG from '../svg/delete_FILL0_wght400_GRAD0_opsz48.svg';
 import doneSVG from '../svg/done_FILL0_wght400_GRAD0_opsz48.svg';
@@ -61,8 +62,7 @@ function projectEditDialog(project) {
   deleteBtn.appendChild(deleteImg);
 
   deleteBtn.addEventListener('click', (e) => {
-    // TODO: implement
-    console.log('Delete project', project.projectName);
+    projectDelete(project);
   });
 
   const action = document.createElement('div');

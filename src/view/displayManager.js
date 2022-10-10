@@ -11,6 +11,7 @@ import { updateProjectList } from './updateProjectList';
 
 const displayManager = (() => {
   function showEditDialog(project) {
+    clearMainContent();
     const main = document.querySelector('.main-content');
     main.appendChild(projectEditDialog(project));
   }
