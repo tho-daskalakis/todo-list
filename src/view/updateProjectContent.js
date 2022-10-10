@@ -11,7 +11,6 @@ function updateProjectContent() {
   // console.log(projectManager.getSelectedProject());
   const selectedProjectIndex = projectManager.getSelectedProject();
   const currentProject = projectManager.getProjects()[selectedProjectIndex];
-  const tasks = currentProject.getTasks();
 
   // Display project name
   const displayProject = document.createElement('div');

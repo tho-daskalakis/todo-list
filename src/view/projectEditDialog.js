@@ -52,7 +52,6 @@ function projectEditDialog(project) {
   div.appendChild(edit);
 
   // Delete button
-
   const deleteImg = document.createElement('img');
   deleteImg.setAttribute('src', deleteSVG);
   deleteImg.setAttribute('alt', 'Delete project');

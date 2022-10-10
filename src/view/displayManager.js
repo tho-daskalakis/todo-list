@@ -1,4 +1,5 @@
 import { clearMainContent } from './clearMainContent';
+import { highlightSelectedProject } from './highlightSelectedProject';
 import { projectEditDialog } from './projectEditDialog';
 import { selectProjectInput } from './selectProjectInput';
 import { selectTaskInput } from './selectTaskInput';
@@ -39,6 +40,7 @@ const displayManager = (() => {
     taskDisplay,
     taskEditDialog,
     toggleTaskDisplayMode,
+    highlightSelectedProject,
   };
 })();
 

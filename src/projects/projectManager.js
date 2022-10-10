@@ -39,6 +39,7 @@ const projectManager = (() => {
     // Create project
     const project = projectFactory();
     addProject(project);
+    setSelectedProject(projectArr.length - 1);
 
     displayManager.showEditDialog(project);
     displayManager.selectProjectInput();
@@ -75,6 +76,7 @@ const projectManager = (() => {
     // console.log(project);
     // console.table(projectArr);
     project.div = projectDisplay(project);
+    displayManager.highlightSelectedProject();
     displayManager.updateProjectList();
     displayManager.updateProjectContent();
     displayManager.toggleAddProjectBtn();
